@@ -109,7 +109,7 @@ String int64ToString(int64_t input, uint8_t base) {
 /// @param[in] input The value to print
 /// @param[in] base The output base.
 void serialPrintUint64(uint64_t input, uint8_t base) {
-  Serial.print(uint64ToString(input, base));
+  Serial::print(uint64ToString(input, base));
 }
 #endif
 
@@ -816,7 +816,7 @@ namespace irutils {
       return String(kThreeLetterDayOfWeekStr).substr(
         (day_of_week + offset) * 3, 3);
 #else  // UNIT_TEST
-      return String(kThreeLetterDayOfWeekStr).substring(
+      return String(kThreeLetterDayOfWeekStr).substr(
         (day_of_week + offset) * 3, (day_of_week + offset) * 3 + 3);
 #endif  // UNIT_TEST
     else
