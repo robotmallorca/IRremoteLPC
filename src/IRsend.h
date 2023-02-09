@@ -29,7 +29,12 @@ const int8_t kPeriodOffset = -2;
 // v2.6.0 with v2.5.2 ESP core @ 160MHz
 const int8_t kPeriodOffset = -2;
 #else  // (NOW: LPC43 120MHz OLD:defined(ESP8266) && F_CPU == 160000000L)
-const int8_t kPeriodOffset = -4;
+#ifdef DEBUG
+const int8_t kPeriodOffset = -6;
+#else
+const int8_t kPeriodOffset = -1;
+#endif  //DEBUG
+
 #endif  // (defined(ESP8266) && F_CPU == 160000000L)
 const uint8_t kDutyDefault = 50;  // Percentage
 const uint8_t kDutyMax = 100;     // Percentage
